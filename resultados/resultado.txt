@@ -1,2 +1,0 @@
-Epoch 00100: val_acc did not improve from 0.96863
-20/20 [==============================] - 3s 134ms/step - loss: 0.1638 - acc: 0.9361 - val_loss: 0.1023 - val_acc: 0.9667
