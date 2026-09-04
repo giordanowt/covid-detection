@@ -149,3 +149,11 @@ com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
 fabric.properties
+
+# Project
+data/
+artifacts/
+*.hdf5
+*.keras
+*.h5
+manifest.csv
