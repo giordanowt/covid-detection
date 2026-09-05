@@ -12,7 +12,7 @@ Historical project, archived. In September 2026 the repository received a cleanu
 
 Written by the author while revisiting the work. The qualitative conclusion of the paper (a VGG19 transfer-learning model separates the three classes on this dataset) still holds, but the reported numbers and part of the method do not survive review.
 
-- **The ~96% accuracy is the wrong metric.** The model was compiled with `binary_crossentropy` and `acc` on a 3-class softmax, so Keras reported `binary_accuracy`, which counts three comparisons per image and gives one right for every wrong prediction. Recomputed from the confusion matrices printed in the thesis and the paper:
+- **The ~96% accuracy is the wrong metric.** The model was compiled with `binary_crossentropy` and `acc` on a 3-class softmax, so Keras silently reported `binary_accuracy`: three comparisons per image, where a wrong prediction still scores one. The confusion matrices in the thesis and the paper were computed separately with scikit-learn on the argmax and are not affected. Summing their diagonals gives the real 3-class accuracy; applying the binary formula (3 × correct + wrong) / (3 × N) to the same matrices reproduces the published numbers, which confirms the source of the error.
 
   | Experiment | Reported | 3-class accuracy from confusion matrix |
   |---|---|---|
